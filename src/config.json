@@ -1,0 +1,35 @@
+{
+  "businessName": "My Business",
+  "description": "my business description",
+  "pages": [
+    {
+      "name": "Residential",
+      "url": "/residential"
+    },
+    {
+      "name": "Commercial",
+      "url": "/commercial"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "socials": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/ar_built_ltd/?hl=en",
+      "icon": "mdi:instagram"
+    }
+  ],
+  "support": [
+    {
+      "name": "022 499 2368",
+      "url": "tel:+64224992368"
+    },
+    {
+      "name": "admin@arbuilt.co.nz",
+      "url": "mailto:admin@arbuilt.co.nz"
+    }
+  ]
+}
