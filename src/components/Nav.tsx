@@ -25,9 +25,9 @@ const Nav = () => {
           <label htmlFor="my-drawer" className="">
             <Icon icon="mdi:menu" className="text-white text-4xl" />
           </label>
-          <h1 className="text-white font-bold text-2xl">
+          <a href="/" className="text-white font-bold text-2xl">
             {config.businessName}
-          </h1>
+          </a>
         </div>
         <div className="drawer-side">
           <label

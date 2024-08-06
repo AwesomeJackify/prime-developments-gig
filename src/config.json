@@ -18,7 +18,7 @@
   "socials": [
     {
       "name": "Instagram",
-      "url": "https://www.instagram.com/ar_built_ltd/?hl=en",
+      "url": "https://www.instagram.com",
       "icon": "mdi:instagram"
     }
   ],
@@ -28,8 +28,8 @@
       "url": "tel:+64224992368"
     },
     {
-      "name": "admin@arbuilt.co.nz",
-      "url": "mailto:admin@arbuilt.co.nz"
+      "name": "admin@test.co.nz",
+      "url": "mailto:google.co.nz"
     }
   ]
 }

@@ -1,0 +1,51 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import type { ImageMetadata } from "astro";
+import { getEntry } from "astro:content";
+
+export function getStaticPaths() {
+  return [{ params: { project: "the-barn" } }];
+}
+
+const { project } = Astro.params;
+
+const projectImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+);
+
+const currentProjectEntry = await getEntry("projects", project);
+if (!currentProjectEntry) {
+  return { status: 404 };
+}
+const data = currentProjectEntry.data;
+---
+
+<Layout title={data.name}>
+  <section class="h-screen max-md:h-96 relative w-full">
+    <Image
+      src={projectImages[`/src/assets/images/projects/${data.featuredImage}`]()}
+      alt={data.name}
+      class="w-full h-full object-cover absolute top-0 left-0"
+    />
+  </section>
+  <section class="py-16">
+    <div
+      class="max-w-screen-xl mx-auto grid grid-cols-2 gap-8 max-md:grid-cols-1 px-4"
+    >
+      <h1 class="text-9xl font-bold">
+        {data.name}
+      </h1>
+      <p class="font-light text-4xl">{data.description}</p>
+    </div>
+  </section>
+  <section>
+    <div class="max-w-screen-lg mx-auto">
+      <Image
+        src={projectImages[`/src/assets/images/projects/${data.floorPlan}`]()}
+        alt={data.name}
+        class="w-full object-contain"
+      />
+    </div>
+  </section>
+</Layout>

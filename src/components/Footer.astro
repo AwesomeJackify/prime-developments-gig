@@ -1,0 +1,72 @@
+---
+import astroLogo from "../assets/images/AstroMediaLogo.svg";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+import config from "../config.json";
+
+const projects = await getCollection("projects");
+---
+
+<footer class="footer p-10 bg-secondary text-white">
+  <aside>
+    <!-- <Image src={logo} alt="logo" class="w-32 p-4 rounded-md" /> -->
+    <h1 class="text-4xl font-bold uppercase">{config.businessName}</h1>
+    <p>
+      <!-- <span class="font-robot">{config.businessName} </span><br /> -->
+      Providing reliable services since 2000
+    </p>
+  </aside>
+  <nav>
+    <h6 class="footer-title">Projects</h6>
+    {
+      projects.map((project: any) => (
+        <a class="link link-hover" href={`/projects/${project.slug}`}>
+          {project.data.name}
+        </a>
+      ))
+    }
+  </nav>
+  <nav>
+    <h6 class="footer-title">Support</h6>
+    {
+      config.support.map((supportItem: any) => (
+        <a class="link link-hover" href={supportItem.url}>
+          {supportItem.name}
+        </a>
+      ))
+    }
+  </nav>
+  <nav class="flex flex-col h-full justify-between">
+    {
+      config.socials &&
+        config.socials.map((social: any) => (
+          <div>
+            <h6 class="footer-title">Socials</h6>
+            <a class="group" href={social.url} target="_blank">
+              <Icon
+                name={social.icon}
+                class="text-4xl group-hover:text-accent transition-colors"
+              />
+            </a>
+          </div>
+        ))
+    }
+  </nav>
+  <div class="flex flex-col justify-end h-full">
+    <p class="flex items-center gap-1 max-md:self-center">
+      Made possible by <a
+        href="https://astromedia.dev"
+        class="link hover:text-accent transition-colors"
+        target="_blank">Astro Media</a
+      ><Image
+        class="w-5"
+        src={astroLogo}
+        width={10}
+        height={10}
+        alt="digital agency"
+      />
+    </p>
+  </div>
+</footer>

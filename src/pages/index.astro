@@ -77,12 +77,12 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
 ---
 
 <Layout title={config.businessName}>
-  <section class="h-screen relative w-full">
+  <section class="h-screen max-md:h-96 relative w-full">
     <Image src={heroImg} alt="Hero image" class="object-cover w-full h-full" />
   </section>
-  <section class="py-16 px-4">
+  <section class="py-16">
     <div
-      class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
+      class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8 px-4"
     >
       <h1 class="font-bold text-4xl col-span-2">
         <span class="text-primary">/</span> Our Mission
