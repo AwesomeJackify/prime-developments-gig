@@ -5,7 +5,14 @@ export default {
     extend: {},
   },
   daisyui: {
-    themes: ["cmyk"],
+    themes: [
+      {
+        cmyk: {
+          ...require("daisyui/src/theming/themes")["cmyk"],
+          primary: "#f97316",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };

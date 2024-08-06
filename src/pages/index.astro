@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from "astro";
+import { getCollection } from "astro:content";
 
 import config from "../config.json";
 
@@ -59,6 +61,19 @@ const services = [
     image: commercialImg,
   },
 ];
+
+const fields = [
+  { name: "firstName", text: "First Name" },
+  { name: "lastName", text: "Last Name" },
+  { name: "email", text: "Email" },
+  { name: "message", text: "Message" },
+];
+
+const projects = await getCollection("projects");
+
+const projectImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+);
 ---
 
 <Layout title={config.businessName}>
@@ -70,7 +85,7 @@ const services = [
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
     >
       <h1 class="font-bold text-4xl col-span-2">
-        <span class="text-orange-500">/</span> Our Mission
+        <span class="text-primary">/</span> Our Mission
       </h1>
       <p class="col-span-6 font-light text-2xl md:pb-52">
         New builds and townhouse developments are our primary focus, as we
@@ -114,12 +129,12 @@ const services = [
       </p>
     </div>
   </section>
-  <section class="py-16 px-4">
+  <section class="py-16 px-4 bg-stone-100">
     <div
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
     >
       <h1 class="font-bold text-4xl col-span-2">
-        <span class="text-orange-500">/</span> Our Services
+        <span class="text-primary">/</span> Our Services
       </h1>
       <div class="grid gap-8 grid-cols-2 col-span-6 max-md:grid-cols-1">
         {
@@ -138,6 +153,109 @@ const services = [
           ))
         }
       </div>
+    </div>
+  </section>
+  <section class="py-16 px-4">
+    <div
+      class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
+    >
+      <h1 class="font-bold text-4xl col-span-2">
+        <span class="text-primary">/</span> Our Projects
+      </h1>
+      <div class="col-span-6 flex flex-col gap-16">
+        <p class="font-light text-2xl">
+          At Prime Developments, we specialise in providing comprehensive
+          development services. We understand that building houses can be a
+          complex and overwhelming process.
+          <br />
+          <br />
+          That's why at Prime Developments, we handle every aspect for you. From
+          design and planning to construction, we ensure a seamless and stress-free
+          experience, guiding you through each step with expertise and care.
+        </p>
+        <div class="flex flex-col w-full">
+          {
+            projects.slice(0, 3).map((project: any) => (
+              <a
+                class="w-full h-96 max-md:h-52 relative group"
+                href={"/projects/" + project.slug}
+              >
+                <Image
+                  src={projectImages[
+                    `/src/assets/images/projects/${project.data.featuredImage}`
+                  ]()}
+                  alt={project.data.name}
+                  class="object-cover w-full h-full object-center"
+                />
+                <div class="w-full h-full absolute bg-black opacity-40 group-hover:opacity-20 transition top-0 left-0 z-10" />
+                <h2 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-6xl max-md:text-5xl z-20">
+                  {project.data.name}
+                </h2>
+              </a>
+            ))
+          }
+          <a href="/projects" class="link text-2xl mt-8 link-primary mx-auto"
+            >View all projects</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="bg-stone-100 py-16">
+    <div
+      class="max-w-screen-lg mx-auto flex flex-col items-center gap-16 max-md:gap-8 px-2"
+    >
+      <div class="flex flex-col items-center gap-4">
+        <h1 class="text-8xl max-md:text-4xl font-extrabold text-center">
+          Got a dream?
+        </h1>
+        <h2 class="text-7xl font-extrabold text-center max-md:text-5xl">
+          Let's build it together
+        </h2>
+      </div>
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        class="py-6 w-full flex flex-col gap-2 text-4xl max-md:text-2xl font-light"
+      >
+        <div
+          class="rounded-2xl border-2 border-black pt-8 pb-16 px-16 max-md:px-4"
+        >
+          {
+            fields.map((field) => (
+              <div class="flex gap-16 items-center border-b-2 border-black py-2">
+                <label
+                  for={field.name}
+                  class="whitespace-nowrap min-w-32 max-md:min-w-12"
+                >
+                  {field.text}
+                </label>
+                {field.name === "message" ? (
+                  <textarea
+                    required
+                    id={field.name}
+                    name={field.name}
+                    class="bg-transparent form-input px-4 h-96 py-3 w-full rounded focus:outline-none font-extralight"
+                  />
+                ) : (
+                  <input
+                    required
+                    autocomplete="on"
+                    type="text"
+                    id={field.name}
+                    name={field.name}
+                    class="bg-transparent form-input px-4 py-3 w-full rounded focus:outline-none font-extralight"
+                  />
+                )}
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex text-[#e4ab97] w-full justify-center my-6">
+          <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+      </form>
     </div>
   </section>
 </Layout>
