@@ -84,10 +84,10 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
     <div
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8 px-4"
     >
-      <h1 class="font-bold text-4xl col-span-2">
+      <h1 class="font-bold text-4xl col-span-2 max-md:col-span-full">
         <span class="text-primary">/</span> Our Mission
       </h1>
-      <p class="col-span-6 font-light text-2xl md:pb-52">
+      <p class="col-span-6 font-light text-2xl md:pb-52 max-md:col-span-full">
         New builds and townhouse developments are our primary focus, as we
         specialise in delivering high-quality construction for these projects.
         <br />
@@ -133,10 +133,12 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
     <div
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
     >
-      <h1 class="font-bold text-4xl col-span-2">
+      <h1 class="font-bold text-4xl col-span-2 max-md:col-span-full">
         <span class="text-primary">/</span> Our Services
       </h1>
-      <div class="grid gap-8 grid-cols-2 col-span-6 max-md:grid-cols-1">
+      <div
+        class="grid gap-8 grid-cols-2 col-span-6 max-md:col-span-full max-md:grid-cols-1"
+      >
         {
           services.map((service) => (
             <a href={service.url} class="relative group">
@@ -159,10 +161,10 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
     <div
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
     >
-      <h1 class="font-bold text-4xl col-span-2">
+      <h1 class="font-bold text-4xl col-span-2 max-md:col-span-full">
         <span class="text-primary">/</span> Our Projects
       </h1>
-      <div class="col-span-6 flex flex-col gap-16">
+      <div class="col-span-6 flex flex-col gap-16 max-md:col-span-full">
         <p class="font-light text-2xl">
           At Prime Developments, we specialise in providing comprehensive
           development services. We understand that building houses can be a
