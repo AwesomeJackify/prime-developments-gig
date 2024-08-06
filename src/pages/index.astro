@@ -7,9 +7,9 @@ import config from "../config.json";
 
 import heroImg from "../assets/images/hero.jpg";
 
-import gallery1 from "../assets/images/gallery/gallery1.jpeg";
+import residentialImg from "../assets/images/gallery/gallery1.jpeg";
 import gallery2 from "../assets/images/gallery/gallery2.jpeg";
-import gallery3 from "../assets/images/gallery/gallery3.jpeg";
+import commercialImg from "../assets/images/gallery/gallery3.jpeg";
 import gallery4 from "../assets/images/gallery/gallery4.jpeg";
 import gallery5 from "../assets/images/gallery/gallery5.jpeg";
 import gallery6 from "../assets/images/gallery/gallery6.jpeg";
@@ -27,9 +27,9 @@ import gallery17 from "../assets/images/gallery/gallery17.jpeg";
 import gallery18 from "../assets/images/gallery/gallery18.jpeg";
 
 const galleryImgs = [
-  gallery1,
+  residentialImg,
   gallery2,
-  gallery3,
+  commercialImg,
   gallery4,
   gallery5,
   gallery6,
@@ -46,6 +46,19 @@ const galleryImgs = [
   gallery17,
   gallery18,
 ];
+
+const services = [
+  {
+    name: "Residential",
+    url: "/residential",
+    image: residentialImg,
+  },
+  {
+    name: "Commercial",
+    url: "/commercial",
+    image: commercialImg,
+  },
+];
 ---
 
 <Layout title={config.businessName}>
@@ -56,10 +69,10 @@ const galleryImgs = [
     <div
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
     >
-      <h1 class="font-bold text-2xl col-span-2">
+      <h1 class="font-bold text-4xl col-span-2">
         <span class="text-orange-500">/</span> Our Mission
       </h1>
-      <p class="col-span-6 font-light text-2xl">
+      <p class="col-span-6 font-light text-2xl md:pb-52">
         New builds and townhouse developments are our primary focus, as we
         specialise in delivering high-quality construction for these projects.
         <br />
@@ -99,6 +112,32 @@ const galleryImgs = [
       <p class="md:hidden italic font-light text-xs">
         scroll right to see more
       </p>
+    </div>
+  </section>
+  <section class="py-16 px-4">
+    <div
+      class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
+    >
+      <h1 class="font-bold text-4xl col-span-2">
+        <span class="text-orange-500">/</span> Our Services
+      </h1>
+      <div class="grid gap-8 grid-cols-2 col-span-6 max-md:grid-cols-1">
+        {
+          services.map((service) => (
+            <a href={service.url} class="relative group">
+              <Image
+                src={service.image}
+                alt={service.name}
+                class="object-cover w-full aspect-square relative"
+              />
+              <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40 group-hover:opacity-20 transition" />
+              <h2 class="font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-6xl max-md:text-5xl">
+                {service.name}
+              </h2>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </section>
 </Layout>

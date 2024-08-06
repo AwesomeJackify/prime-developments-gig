@@ -13,7 +13,7 @@ const Nav = () => {
         <ul className="flex gap-4">
           {config.pages.map((page) => (
             <li className="link link-hover font-bold" key={page.name}>
-              {page.name}
+              <a href={page.url}>{page.name}</a>
             </li>
           ))}
         </ul>
