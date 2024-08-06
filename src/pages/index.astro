@@ -1,7 +1,104 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import { Icon } from "astro-icon/components";
 
 import config from "../config.json";
+
+import heroImg from "../assets/images/hero.jpg";
+
+import gallery1 from "../assets/images/gallery/gallery1.jpeg";
+import gallery2 from "../assets/images/gallery/gallery2.jpeg";
+import gallery3 from "../assets/images/gallery/gallery3.jpeg";
+import gallery4 from "../assets/images/gallery/gallery4.jpeg";
+import gallery5 from "../assets/images/gallery/gallery5.jpeg";
+import gallery6 from "../assets/images/gallery/gallery6.jpeg";
+import gallery7 from "../assets/images/gallery/gallery7.jpeg";
+import gallery8 from "../assets/images/gallery/gallery8.jpeg";
+import gallery9 from "../assets/images/gallery/gallery9.jpeg";
+import gallery10 from "../assets/images/gallery/gallery10.jpeg";
+import gallery11 from "../assets/images/gallery/gallery11.jpeg";
+import gallery12 from "../assets/images/gallery/gallery12.jpeg";
+import gallery13 from "../assets/images/gallery/gallery13.jpeg";
+import gallery14 from "../assets/images/gallery/gallery14.jpeg";
+import gallery15 from "../assets/images/gallery/gallery15.jpeg";
+import gallery16 from "../assets/images/gallery/gallery16.jpeg";
+import gallery17 from "../assets/images/gallery/gallery17.jpeg";
+import gallery18 from "../assets/images/gallery/gallery18.jpeg";
+
+const galleryImgs = [
+  gallery1,
+  gallery2,
+  gallery3,
+  gallery4,
+  gallery5,
+  gallery6,
+  gallery7,
+  gallery8,
+  gallery9,
+  gallery10,
+  gallery11,
+  gallery12,
+  gallery13,
+  gallery14,
+  gallery15,
+  gallery16,
+  gallery17,
+  gallery18,
+];
 ---
 
-<Layout title={config.businessName}> hi </Layout>
+<Layout title={config.businessName}>
+  <section class="h-screen relative w-full">
+    <Image src={heroImg} alt="Hero image" class="object-cover w-full h-full" />
+  </section>
+  <section class="py-16 px-4">
+    <div
+      class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
+    >
+      <h1 class="font-bold text-2xl col-span-2">
+        <span class="text-orange-500">/</span> Our Mission
+      </h1>
+      <p class="col-span-6 font-light text-2xl">
+        New builds and townhouse developments are our primary focus, as we
+        specialise in delivering high-quality construction for these projects.
+        <br />
+        <br />
+        Our company also offers a range of additional services, including residential
+        renovations such as decking and bathroom updates. We manage everything from
+        planning and resource consent to building consent, supported by a dedicated
+        architectural design team and skilled residential home builders.
+        <br />
+        <br />
+        Whether it's crafting new townhouses or revitalising existing spaces, we
+        provide expert solutions tailored to our clients' needs.
+      </p>
+    </div>
+    <div class="flex flex-col items-center gap-2 mt-16">
+      <div class="carousel h-[500px] overflow-y-hidden max-md:h-96">
+        {
+          galleryImgs.map((img, index) => (
+            <div class="carousel-item">
+              <Image
+                src={img}
+                class="object-cover w-full max-md:w-72 h-full"
+                alt={`carousel img ${index}`}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="flex items-center justify-center gap-2 max-md:hidden text-xs">
+        <p class="italic font-light">scroll using</p>
+        <kbd class="kbd kbd-xs">Shift</kbd>
+        <p>+</p>
+        <Icon name="mdi:mouse" class="text-xs" />
+        <p class="italic font-light">or</p>
+        <Icon name="mdi:trackpad" class="text-xs" />
+      </div>
+      <p class="md:hidden italic font-light text-xs">
+        scroll right to see more
+      </p>
+    </div>
+  </section>
+</Layout>

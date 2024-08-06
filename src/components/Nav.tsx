@@ -5,8 +5,8 @@ import config from "../config.json";
 
 const Nav = () => {
   return (
-    <div className="p-4 bg-black">
-      <nav className="flex justify-between items-center w-full text-white max-md:hidden">
+    <div className="p-4 bg-black fixed top-0 left-0 z-50 w-full">
+      <nav className="flex justify-between items-center w-full text-white max-md:hidden max-w-screen-xl mx-auto">
         <a href="/" className="text-4xl font-bold">
           {config.businessName}
         </a>
@@ -20,7 +20,7 @@ const Nav = () => {
       </nav>
       <nav className="drawer md:hidden">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content bg-black w-full flex items-center gap-4">
+        <div className="drawer-content w-full flex items-center gap-4">
           {/* Page content here */}
           <label htmlFor="my-drawer" className="">
             <Icon icon="mdi:menu" className="text-white text-4xl" />
