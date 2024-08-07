@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
+import logoImg from "../assets/images/logo.png";
+
 import config from "../config.json";
 
 const projects = await getCollection("projects");
@@ -11,8 +13,8 @@ const projects = await getCollection("projects");
 
 <footer class="footer p-10 bg-secondary text-white">
   <aside>
-    <!-- <Image src={logo} alt="logo" class="w-32 p-4 rounded-md" /> -->
-    <h1 class="text-4xl font-bold uppercase">{config.businessName}</h1>
+    <Image src={logoImg} alt="logo" class="w-52 rounded-md" />
+    <!-- <h1 class="text-4xl font-bold uppercase">{config.businessName}</h1> -->
     <p>
       <!-- <span class="font-robot">{config.businessName} </span><br /> -->
       Providing reliable services since 2000
