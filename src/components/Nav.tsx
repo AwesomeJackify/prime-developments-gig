@@ -21,13 +21,19 @@ const Nav = () => {
       </nav>
       <nav className="drawer md:hidden">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content w-full flex items-center gap-4">
+        <div className="drawer-content w-full flex items-center gap-4 justify-between">
           {/* Page content here */}
           <label htmlFor="my-drawer" className="">
             <Icon icon="mdi:menu" className="text-white text-4xl" />
           </label>
-          <a href="/" className="text-white font-bold text-2xl">
-            {config.businessName}
+          <a href="/">
+            <img
+              src={logoImg.src}
+              alt="logo"
+              width={400}
+              height={400}
+              className="w-52"
+            />
           </a>
         </div>
         <div className="drawer-side">
