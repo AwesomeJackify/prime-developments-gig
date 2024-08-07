@@ -7,7 +7,7 @@ import { getCollection } from "astro:content";
 
 import config from "../config.json";
 
-import heroImg from "../assets/images/hero.jpg";
+import heroImg from "../assets/images/hero.webp";
 
 import residentialImg from "../assets/images/gallery/gallery1.jpeg";
 import gallery2 from "../assets/images/gallery/gallery2.jpeg";
@@ -175,7 +175,7 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
           design and planning to construction, we ensure a seamless and stress-free
           experience, guiding you through each step with expertise and care.
         </p>
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full gap-8">
           {
             projects.slice(0, 3).map((project: any) => (
               <a

@@ -5,7 +5,11 @@ import type { ImageMetadata } from "astro";
 import { getEntry } from "astro:content";
 
 export function getStaticPaths() {
-  return [{ params: { project: "the-barn" } }];
+  return [
+    { params: { project: "the-barn" } },
+    { params: { project: "the-cape-home" } },
+    { params: { project: "the-palliser" } },
+  ];
 }
 
 const { project } = Astro.params;
