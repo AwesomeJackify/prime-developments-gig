@@ -72,7 +72,7 @@ const fields = [
 const projects = await getCollection("projects");
 
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}",
 );
 ---
 
