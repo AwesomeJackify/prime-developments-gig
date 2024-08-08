@@ -13,6 +13,7 @@ import planninganddesign from "../../assets/images/residential/planninganddesign
 import demolition from "../../assets/images/residential/demolition.jpg";
 import renovation from "../../assets/images/residential/renovation.jpg";
 import commercialImg from "../../assets/images/gallery/gallery3.jpeg";
+import framingImg from "../../assets/images/residential/framing.jpg";
 
 const services = [
     {
@@ -69,16 +70,27 @@ const residentialServices = [
 ---
 
 <Layout title={config.businessName}>
-    <section class="h-[40rem] relative w-full">
+    <section class="h-[40rem] relative w-full overflow-hidden group">
         <Image
-            src={heroImg}
+            src={framingImg}
             alt="Hero image"
-            class="object-cover w-full h-full z-1"
+            class="object-cover w-full h-full scale-100 group-hover:scale-110 transition-transform duration-700 ease-in-out"
         />
-        <div class="absolute inset-0 flex items-center justify-center">
-            <h1 class="text-white text-4xl font-bold">Residential</h1>
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-2"
+        >
+        </div>
+        <div
+            class="absolute inset-0 flex flex-col items-center justify-center z-3 p-4"
+        >
+            <h1
+                class="text-white text-5xl md:text-6xl font-bold mb-4 tracking-wider"
+            >
+                Residential
+            </h1>
         </div>
     </section>
+
     <section class="py-16">
         <div class="max-w-screen-xl mx-auto grid grid-cols-12 gap-8 px-4">
             <!-- Main content row -->
@@ -133,6 +145,87 @@ const residentialServices = [
                     }
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <h2 class="font-bold text-4xl mb-8 text-center">Contact Us</h2>
+            <form class="bg-white shadow-xl rounded-xl p-8">
+                <div class="mb-6">
+                    <label
+                        for="fullName"
+                        class="block text-gray-700 text-sm font-bold mb-2"
+                        >Full Name</label
+                    >
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div class="mb-6">
+                    <label
+                        for="phoneNumber"
+                        class="block text-gray-700 text-sm font-bold mb-2"
+                        >Phone Number</label
+                    >
+                    <input
+                        type="tel"
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div class="mb-6">
+                    <label
+                        for="email"
+                        class="block text-gray-700 text-sm font-bold mb-2"
+                        >Email</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        required
+                    />
+                </div>
+                <div class="mb-6">
+                    <p class="block text-gray-700 text-sm font-bold mb-2">
+                        Services Interested In:
+                    </p>
+                    {
+                        residentialServices.map((service) => (
+                            <div class="mb-2">
+                                <input
+                                    type="checkbox"
+                                    id={`service-${service.title}`}
+                                    name="services"
+                                    value={service.title}
+                                    class="mr-2"
+                                />
+                                <label
+                                    for={`service-${service.title}`}
+                                    class="text-gray-700"
+                                >
+                                    {service.title}
+                                </label>
+                            </div>
+                        ))
+                    }
+                </div>
+                <div class="flex items-center justify-center">
+                    <button
+                        type="submit"
+                        class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </section>
 </Layout>
