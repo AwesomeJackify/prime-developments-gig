@@ -7,39 +7,12 @@ import { getCollection } from "astro:content";
 
 import config from "../../config.json";
 
-import heroImg from "../../assets/images/hero.webp";
 import residentialImg from "../../assets/images/gallery/gallery1.jpeg";
 import planninganddesign from "../../assets/images/residential/planninganddesign.jpg";
 import demolition from "../../assets/images/residential/demolition.jpg";
 import renovation from "../../assets/images/residential/renovation.jpg";
-import commercialImg from "../../assets/images/gallery/gallery3.jpeg";
+
 import framingImg from "../../assets/images/residential/framing.jpg";
-
-const services = [
-    {
-        name: "Residential",
-        url: "/residential",
-        image: residentialImg,
-    },
-    {
-        name: "Commercial",
-        url: "/commercial",
-        image: commercialImg,
-    },
-];
-
-const fields = [
-    { name: "firstName", text: "First Name" },
-    { name: "lastName", text: "Last Name" },
-    { name: "email", text: "Email" },
-    { name: "message", text: "Message" },
-];
-
-const projects = await getCollection("projects");
-
-const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}",
-);
 
 const residentialServices = [
     {
