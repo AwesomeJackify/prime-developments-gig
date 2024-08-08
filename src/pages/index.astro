@@ -28,6 +28,14 @@ import gallery16 from "../assets/images/gallery/gallery16.jpeg";
 import gallery17 from "../assets/images/gallery/gallery17.jpeg";
 import gallery18 from "../assets/images/gallery/gallery18.jpeg";
 
+import planning from "../assets/images/residential/planninganddesign.jpg";
+import demolition from "../assets/images/residential/demolition.jpg";
+
+import renovations from "../assets/images/residential/renovation.jpg";
+import office from "../assets/images/residential/office.jpg";
+import kitchens from "../assets/images/residential/kitchen.jpg";
+import Form from "../components/Form.astro";
+
 const galleryImgs = [
   residentialImg,
   gallery2,
@@ -51,14 +59,34 @@ const galleryImgs = [
 
 const services = [
   {
-    name: "Residential",
-    url: "/residential",
+    name: "Developments",
+    url: "/developments",
     image: residentialImg,
   },
   {
-    name: "Commercial",
-    url: "/commercial",
-    image: commercialImg,
+    name: "Planning",
+    url: "/planning-and-design",
+    image: planning,
+  },
+  {
+    name: "Renovations",
+    url: "/renovations",
+    image: renovations,
+  },
+  {
+    name: "Office Fit Outs",
+    url: "/fit-outs",
+    image: office,
+  },
+  {
+    name: "Demolition",
+    url: "/demolition",
+    image: demolition,
+  },
+  {
+    name: "Decks and Kitchens",
+    url: "/decks-and-kitchens",
+    image: kitchens,
   },
 ];
 
@@ -72,7 +100,7 @@ const fields = [
 const projects = await getCollection("projects");
 
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}",
 );
 ---
 
@@ -137,18 +165,18 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
         <span class="text-primary">/</span> Our Services
       </h1>
       <div
-        class="grid gap-8 grid-cols-2 col-span-6 max-md:col-span-full max-md:grid-cols-1"
+        class="grid gap-8 grid-cols-3 col-span-6 max-md:col-span-full max-md:grid-cols-1"
       >
         {
           services.map((service) => (
-            <a href={service.url} class="relative group">
+            <a href={`/services${service.url}`} class="relative group">
               <Image
                 src={service.image}
                 alt={service.name}
                 class="object-cover w-full aspect-square relative"
               />
               <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40 group-hover:opacity-20 transition" />
-              <h2 class="font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-6xl max-md:text-5xl">
+              <h2 class="font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white md:text-2xl lg:text-3xl max-md:text-5xl">
                 {service.name}
               </h2>
             </a>
@@ -203,61 +231,5 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
       </div>
     </div>
   </section>
-  <section id="contact" class="bg-stone-100 py-16">
-    <div
-      class="max-w-screen-lg mx-auto flex flex-col items-center gap-16 max-md:gap-8 px-2"
-    >
-      <div class="flex flex-col items-center gap-4">
-        <h1 class="text-8xl max-md:text-4xl font-extrabold text-center">
-          Got a dream?
-        </h1>
-        <h2 class="text-7xl font-extrabold text-center max-md:text-5xl">
-          Let's build it together
-        </h2>
-      </div>
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        class="py-6 w-full flex flex-col gap-2 text-4xl max-md:text-2xl font-light"
-      >
-        <div
-          class="rounded-2xl border-2 border-black pt-8 pb-16 px-16 max-md:px-4"
-        >
-          {
-            fields.map((field) => (
-              <div class="flex gap-16 items-center border-b-2 border-black py-2">
-                <label
-                  for={field.name}
-                  class="whitespace-nowrap min-w-32 max-md:min-w-12"
-                >
-                  {field.text}
-                </label>
-                {field.name === "message" ? (
-                  <textarea
-                    required
-                    id={field.name}
-                    name={field.name}
-                    class="bg-transparent form-input px-4 h-96 py-3 w-full rounded focus:outline-none font-extralight"
-                  />
-                ) : (
-                  <input
-                    required
-                    autocomplete="on"
-                    type="text"
-                    id={field.name}
-                    name={field.name}
-                    class="bg-transparent form-input px-4 py-3 w-full rounded focus:outline-none font-extralight"
-                  />
-                )}
-              </div>
-            ))
-          }
-        </div>
-        <div class="flex text-[#e4ab97] w-full justify-center my-6">
-          <input type="submit" value="Submit" class="btn btn-primary" />
-        </div>
-      </form>
-    </div>
-  </section>
+  <Form />
 </Layout>

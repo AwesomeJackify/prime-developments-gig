@@ -1,0 +1,68 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+import type { ImageMetadata } from "astro";
+import { getEntry } from "astro:content";
+import config from "../../config";
+import Form from "../../components/Form.astro";
+
+export function getStaticPaths() {
+    return [
+        { params: { services: "developments" } },
+        { params: { services: "planning-and-design" } },
+        { params: { services: "renovations" } },
+        { params: { services: "fit-outs" } },
+        { params: { services: "demolition" } },
+        { params: { services: "decks-and-kitchens" } },
+    ];
+}
+
+const { services } = Astro.params;
+
+const projectImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/images/residential/**/*.{jpeg,jpg,png,gif}",
+);
+
+const currentProjectEntry = await getEntry("services", services);
+if (!currentProjectEntry) {
+    return { status: 404 };
+}
+const data = currentProjectEntry.data;
+---
+
+<Layout title={`${data.name} | ${config.businessName}`}>
+    <section class="h-[40rem] relative w-full overflow-hidden group">
+        <Image
+            src={projectImages[
+                `/src/assets/images/residential/${data.featuredImage}`
+            ]()}
+            alt={data.name}
+            class="object-cover w-full h-full scale-100 group-hover:scale-110 transition-transform duration-700 ease-in-out"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/30 z-2"
+        >
+        </div>
+        <div
+            class="absolute inset-0 flex flex-col items-center justify-center z-3 p-4"
+        >
+            <h1
+                class="text-white text-5xl md:text-6xl font-bold mb-4 tracking-wider"
+            >
+                {data.name}
+            </h1>
+        </div>
+    </section>
+    <section class="py-16">
+        <div class="max-w-screen-xl mx-auto grid grid-cols-12 gap-8 px-4">
+            <h1 class="font-bold text-4xl col-span-12 md:col-span-4">
+                <span class="text-primary">/</span>
+                {data.name}
+            </h1>
+            <p class="col-span-12 md:col-span-8 font-light text-2xl md:pb-16">
+                {data.description}
+            </p>
+        </div>
+    </section>
+    <Form />
+</Layout>
