@@ -1,7 +1,7 @@
 ---
-name: "Residential Developments"
-description: "We are experts in developing residential properties. We have developed various townhouses around the Canterbury region. We cover the whole process for you and provide you with either predesigned drawings or we can work with you to develop the vision of your dream house.
+name: "Decks and Kitchens"
+description: "Our skilled team has completed numerous home improvement projects throughout the Canterbury region, from stunning deck installations to complete kitchen renovations and everything in between.
 
  "
-featuredImage: "demolition.jpg"
+featuredImage: "kitchen.jpg"
 ---

@@ -33,6 +33,7 @@ import demolition from "../assets/images/residential/demolition.jpg";
 
 import renovations from "../assets/images/residential/renovation.jpg";
 import kitchens from "../assets/images/residential/kitchen.jpg";
+import Form from "../components/Form.astro";
 
 const galleryImgs = [
   residentialImg,
@@ -229,61 +230,5 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
       </div>
     </div>
   </section>
-  <section id="contact" class="bg-stone-100 py-16">
-    <div
-      class="max-w-screen-lg mx-auto flex flex-col items-center gap-16 max-md:gap-8 px-2"
-    >
-      <div class="flex flex-col items-center gap-4">
-        <h1 class="text-8xl max-md:text-4xl font-extrabold text-center">
-          Got a dream?
-        </h1>
-        <h2 class="text-7xl font-extrabold text-center max-md:text-5xl">
-          Let's build it together
-        </h2>
-      </div>
-      <form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        class="py-6 w-full flex flex-col gap-2 text-4xl max-md:text-2xl font-light"
-      >
-        <div
-          class="rounded-2xl border-2 border-black pt-8 pb-16 px-16 max-md:px-4"
-        >
-          {
-            fields.map((field) => (
-              <div class="flex gap-16 items-center border-b-2 border-black py-2">
-                <label
-                  for={field.name}
-                  class="whitespace-nowrap min-w-32 max-md:min-w-12"
-                >
-                  {field.text}
-                </label>
-                {field.name === "message" ? (
-                  <textarea
-                    required
-                    id={field.name}
-                    name={field.name}
-                    class="bg-transparent form-input px-4 h-96 py-3 w-full rounded focus:outline-none font-extralight"
-                  />
-                ) : (
-                  <input
-                    required
-                    autocomplete="on"
-                    type="text"
-                    id={field.name}
-                    name={field.name}
-                    class="bg-transparent form-input px-4 py-3 w-full rounded focus:outline-none font-extralight"
-                  />
-                )}
-              </div>
-            ))
-          }
-        </div>
-        <div class="flex text-[#e4ab97] w-full justify-center my-6">
-          <input type="submit" value="Submit" class="btn btn-primary" />
-        </div>
-      </form>
-    </div>
-  </section>
+  <Form />
 </Layout>
