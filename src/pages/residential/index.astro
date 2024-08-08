@@ -9,6 +9,9 @@ import config from "../../config.json";
 
 import heroImg from "../../assets/images/hero.webp";
 import residentialImg from "../../assets/images/gallery/gallery1.jpeg";
+import planninganddesign from "../../assets/images/residential/planninganddesign.jpg";
+import demolition from "../../assets/images/residential/demolition.jpg";
+import renovation from "../../assets/images/residential/renovation.jpg";
 import commercialImg from "../../assets/images/gallery/gallery3.jpeg";
 
 const services = [
@@ -46,19 +49,19 @@ const residentialServices = [
     },
     {
         title: "Planning and Design",
-        image: residentialImg,
+        image: planninganddesign,
         description:
             "We understand that the planning and design phase is the foundation of your dream home. Our expert team is dedicated to guiding you through this crucial stage, ensuring that every detail aligns with your vision, lifestyle, and budget. ",
     },
     {
         title: "Renovations",
-        image: residentialImg,
+        image: renovation,
         description:
             "At Prime Developments NZ, we breathe new life into spaces of all ages and styles. Whether you're looking to update a historic gem, modernize a recent build, or completely transform your living space, our renovation expertise covers it all. We approach each project with creativity, precision, and respect for your home's unique character.",
     },
     {
         title: "Demolition",
-        image: residentialImg,
+        image: demolition,
         description:
             "We offer professional demolition services as part of our comprehensive construction and renovation solutions. Whether you're clearing space for new construction, removing outdated structures, or preparing for a major renovation, our expert demolition team ensures a safe, efficient, and environmentally responsible process.",
     },
@@ -66,7 +69,7 @@ const residentialServices = [
 ---
 
 <Layout title={config.businessName}>
-    <section class="h-96 relative w-full">
+    <section class="h-screen relative w-full">
         <Image
             src={heroImg}
             alt="Hero image"
@@ -82,7 +85,7 @@ const residentialServices = [
             <h1 class="font-bold text-4xl col-span-12 md:col-span-4">
                 <span class="text-primary">/</span> Residential
             </h1>
-            <p class="col-span-12 md:col-span-8 font-light text-2xl md:pb-52">
+            <p class="col-span-12 md:col-span-8 font-light text-2xl md:pb-16">
                 Prime Developments NZ offers a range of services for residential
                 buildings. Though the main focus is on development we also place
                 focus on renovations, developing plans for builds as well as
@@ -94,27 +97,41 @@ const residentialServices = [
                 We also work directly with our clients based on there requirements
                 to develop the best home possible or to renovate their existing home.
             </p>
-
             <!-- "Our Services" heading -->
-            <h2 class="font-bold text-3xl col-span-12 mt-8">Our Services</h2>
-
-            <!-- Services section -->
-            <div class="col-span-12 grid grid-cols-1 gap-8 mt-4">
-                {
-                    residentialServices.map((service) => (
-                        <div class="flex flex-col gap-4">
-                            <h1 class="font-bold text-2xl">{service.title}</h1>
-                            <Image
-                                src={service.image}
-                                alt={service.title}
-                                class="bg-gray-200 object-cover h-96 flex items-center justify-center hover:opacity-70 transition"
-                            />
-                            <p class="md:w-2/3 font-light">
-                                {service.description}
-                            </p>
-                        </div>
-                    ))
-                }
+            <h2 class="font-bold text-4xl col-span-12 mt-12 mb-8 text-center">
+                Our Services
+            </h2>
+            <!-- Enhanced Services section -->
+            <div
+                class="col-span-12 bg-gradient-to-b from-white to-gray-50 py-16 rounded-xl shadow-lg"
+            >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-4">
+                    {
+                        residentialServices.map((service) => (
+                            <div class="bg-white shadow-xl rounded-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+                                <div class="relative h-80 overflow-hidden">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        width={800}
+                                        height={600}
+                                        class="object-cover w-full h-full transition duration-500 ease-in-out transform hover:scale-110"
+                                    />
+                                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                                        <h3 class="text-3xl font-bold text-white px-6 py-3 bg-black bg-opacity-60 rounded-lg">
+                                            {service.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="p-8">
+                                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                                        {service.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     </section>
