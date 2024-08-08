@@ -46,7 +46,7 @@ const residentialServices = [
         title: "House Development",
         image: residentialImg,
         description:
-            "We develop the house for you and handle the whole process, working alongside you to bring your dream home to life. Our comprehensive approach covers every aspect of home development, ensuring a seamless experience from start to finish. Whether you have a specific vision in mind or need inspiration, we're here to guide you through each step.",
+            "We are experts in developing residential properties. We have developed various townhouses around the Canterbury region. We cover the whole process for you and provide you with either predesigned drawings or we can work with you to develop the vision of your dream house. ",
     },
     {
         title: "Planning and Design",
@@ -147,82 +147,90 @@ const residentialServices = [
             </div>
         </div>
     </section>
-    <section class="py-16 bg-gray-100">
+    <section class="py-16 bg-gradient-to-b from-gray-100 to-white">
         <div class="max-w-screen-xl mx-auto px-4">
-            <h2 class="font-bold text-4xl mb-8 text-center">Contact Us</h2>
-            <form class="bg-white shadow-xl rounded-xl p-8">
-                <div class="mb-6">
-                    <label
-                        for="fullName"
-                        class="block text-gray-700 text-sm font-bold mb-2"
-                        >Full Name</label
-                    >
-                    <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required
-                    />
+            <h2 class="font-bold text-4xl mb-8 text-center text-gray-800">
+                Got a dream? Let's build it together
+            </h2>
+            <form
+                class="bg-white shadow-2xl rounded-3xl p-8 md:p-12 max-w-2xl mx-auto"
+            >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="col-span-1">
+                        <label
+                            for="fullName"
+                            class="block text-gray-700 text-sm font-semibold mb-2"
+                            >Full Name</label
+                        >
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            required
+                        />
+                    </div>
+                    <div class="col-span-1">
+                        <label
+                            for="phoneNumber"
+                            class="block text-gray-700 text-sm font-semibold mb-2"
+                            >Phone Number</label
+                        >
+                        <input
+                            type="tel"
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            required
+                        />
+                    </div>
+                    <div class="col-span-2">
+                        <label
+                            for="email"
+                            class="block text-gray-700 text-sm font-semibold mb-2"
+                            >Email</label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            required
+                        />
+                    </div>
                 </div>
-                <div class="mb-6">
-                    <label
-                        for="phoneNumber"
-                        class="block text-gray-700 text-sm font-bold mb-2"
-                        >Phone Number</label
-                    >
-                    <input
-                        type="tel"
-                        id="phoneNumber"
-                        name="phoneNumber"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required
-                    />
-                </div>
-                <div class="mb-6">
-                    <label
-                        for="email"
-                        class="block text-gray-700 text-sm font-bold mb-2"
-                        >Email</label
-                    >
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required
-                    />
-                </div>
-                <div class="mb-6">
-                    <p class="block text-gray-700 text-sm font-bold mb-2">
+                <div class="mt-8">
+                    <p class="block text-gray-700 text-sm font-semibold mb-4">
                         Services Interested In:
                     </p>
-                    {
-                        residentialServices.map((service) => (
-                            <div class="mb-2">
-                                <input
-                                    type="checkbox"
-                                    id={`service-${service.title}`}
-                                    name="services"
-                                    value={service.title}
-                                    class="mr-2"
-                                />
-                                <label
-                                    for={`service-${service.title}`}
-                                    class="text-gray-700"
-                                >
-                                    {service.title}
-                                </label>
-                            </div>
-                        ))
-                    }
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {
+                            residentialServices.map((service) => (
+                                <div class="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id={`service-${service.title}`}
+                                        name="services"
+                                        value={service.title}
+                                        class="form-checkbox h-5 w-5 text-primary rounded-full"
+                                    />
+                                    <label
+                                        for={`service-${service.title}`}
+                                        class="ml-2 text-gray-700"
+                                    >
+                                        {service.title}
+                                    </label>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
-                <div class="flex items-center justify-center">
+                <div class="mt-10 flex items-center justify-center">
                     <button
                         type="submit"
-                        class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+                        class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-full focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105"
                     >
-                        Submit
+                        Submit Your Dream
                     </button>
                 </div>
             </form>
