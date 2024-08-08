@@ -28,6 +28,12 @@ import gallery16 from "../assets/images/gallery/gallery16.jpeg";
 import gallery17 from "../assets/images/gallery/gallery17.jpeg";
 import gallery18 from "../assets/images/gallery/gallery18.jpeg";
 
+import planning from "../assets/images/residential/planninganddesign.jpg";
+import demolition from "../assets/images/residential/demolition.jpg";
+
+import renovations from "../assets/images/residential/renovation.jpg";
+import kitchens from "../assets/images/residential/kitchen.jpg";
+
 const galleryImgs = [
   residentialImg,
   gallery2,
@@ -51,14 +57,34 @@ const galleryImgs = [
 
 const services = [
   {
-    name: "Residential",
-    url: "/residential",
+    name: "Developments",
+    url: "/developments",
     image: residentialImg,
   },
   {
-    name: "Commercial",
-    url: "/commercial",
-    image: commercialImg,
+    name: "Planning",
+    url: "/planning-and-design",
+    image: planning,
+  },
+  {
+    name: "Renovations",
+    url: "/renovations",
+    image: renovations,
+  },
+  {
+    name: "Office Fit Outs",
+    url: "/fit-outs",
+    image: gallery4,
+  },
+  {
+    name: "Demolition",
+    url: "/demolition",
+    image: demolition,
+  },
+  {
+    name: "Decks and Kitchens",
+    url: "/decks-and-kitchens",
+    image: kitchens,
   },
 ];
 
@@ -137,7 +163,7 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
         <span class="text-primary">/</span> Our Services
       </h1>
       <div
-        class="grid gap-8 grid-cols-2 col-span-6 max-md:col-span-full max-md:grid-cols-1"
+        class="grid gap-8 grid-cols-3 col-span-6 max-md:col-span-full max-md:grid-cols-1"
       >
         {
           services.map((service) => (
@@ -148,7 +174,7 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
                 class="object-cover w-full aspect-square relative"
               />
               <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40 group-hover:opacity-20 transition" />
-              <h2 class="font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-6xl max-md:text-5xl">
+              <h2 class="font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white md:text-2xl lg:text-3xl max-md:text-5xl">
                 {service.name}
               </h2>
             </a>
