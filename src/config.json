@@ -1,15 +1,30 @@
 {
   "businessName": "Prime Developments",
   "description": "New builds and townhouse developments are our primary focus, as we specialise in delivering high-quality construction for these projects. Our company also offers a range of additional services, including residential renovations such as decking and bathroom updates. We manage everything from planning and resource consent to building consent, supported by a dedicated architectural design team and skilled residential home builders. Whether it's crafting new townhouses or revitalising existing spaces, we provide expert solutions tailored to our clients' needs.",
+  "services": [
+    { "name": "Developments", "url": "/services/developments" },
+    {
+      "name": "Planning and Design",
+      "url": "/services/planning-and-design"
+    },
+    {
+      "name": "Renovations",
+      "url": "/services/renovations"
+    },
+    {
+      "name": "Office Fit Outs",
+      "url": "/services/fit-outs"
+    },
+    {
+      "name": "Demolition",
+      "url": "/services/demolition"
+    },
+    {
+      "name": "Decks and Kitchens",
+      "url": "/services/decks-and-kitchens"
+    }
+  ],
   "pages": [
-    {
-      "name": "Residential",
-      "url": "/residential"
-    },
-    {
-      "name": "Commercial",
-      "url": "/commercial"
-    },
     {
       "name": "Contact",
       "url": "/contact"
@@ -24,12 +39,12 @@
   ],
   "support": [
     {
-      "name": "022 499 2368",
-      "url": "tel:+64224992368"
+      "name": "027 269 5587",
+      "url": "tel:+640272695587"
     },
     {
-      "name": "admin@test.co.nz",
-      "url": "mailto:google.co.nz"
+      "name": "admin@primedevelopments.co.nz",
+      "url": "mailto:admin@primesevelopments.co.nz"
     }
   ]
 }
