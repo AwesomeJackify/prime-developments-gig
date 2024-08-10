@@ -64,7 +64,7 @@ const services = [
     image: residentialImg,
   },
   {
-    name: "Planning",
+    name: "Planning and Design",
     url: "/planning-and-design",
     image: planning,
   },
@@ -90,17 +90,10 @@ const services = [
   },
 ];
 
-const fields = [
-  { name: "firstName", text: "First Name" },
-  { name: "lastName", text: "Last Name" },
-  { name: "email", text: "Email" },
-  { name: "message", text: "Message" },
-];
-
 const projects = await getCollection("projects");
 
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}",
+  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
 );
 ---
 

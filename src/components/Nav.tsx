@@ -11,7 +11,19 @@ const Nav = () => {
         <a href="/" className="text-4xl font-bold">
           <img src={logoImg.src} alt="logo" width={400} height={400} />
         </a>
-        <ul className="flex gap-4">
+        <ul className="gap-4 menu menu-horizontal">
+          <li>
+            <details>
+              <summary>Services</summary>
+              <ul className="bg-black rounded-t-none p-2">
+                {config.services.map((service) => (
+                  <li className="link link-hover font-bold" key={service.name}>
+                    <a href={service.url}>{service.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          </li>
           {config.pages.map((page) => (
             <li className="link link-hover font-bold" key={page.name}>
               <a href={page.url}>{page.name}</a>
@@ -43,6 +55,18 @@ const Nav = () => {
             className="drawer-overlay"
           ></label>
           <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+            <li>
+              <details>
+                <summary>Services</summary>
+                <ul className="rounded-t-none p-2">
+                  {config.services.map((service) => (
+                    <li className="link link-hover" key={service.name}>
+                      <a href={service.url}>{service.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
             {config.pages.map((page) => (
               <li className="hover:font-bold transition" key={page.name}>
                 <a href={page.url}>{page.name}</a>
