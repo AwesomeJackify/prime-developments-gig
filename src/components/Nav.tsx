@@ -54,7 +54,7 @@ const Nav = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 text-xl">
             <li>
               <details>
                 <summary>Services</summary>
@@ -72,6 +72,13 @@ const Nav = () => {
                 <a href={page.url}>{page.name}</a>
               </li>
             ))}
+            <img
+              src={logoImg.src}
+              alt="logo"
+              width={300}
+              height={300}
+              className="w-52 mt-auto object-contain "
+            />
           </ul>
         </div>
       </nav>
