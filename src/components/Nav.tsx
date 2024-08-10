@@ -4,9 +4,13 @@ import logoImg from "../assets/images/logo.png";
 
 import config from "../config.json";
 
-const Nav = () => {
+const Nav = ({ navIsSticky = true }: { navIsSticky?: boolean }) => {
   return (
-    <div className="p-4 bg-black fixed top-0 left-0 z-50 w-full">
+    <div
+      className={`p-4 bg-black ${
+        navIsSticky ? "sticky" : ""
+      } top-0 left-0 z-50 w-full`}
+    >
       <nav className="flex justify-between items-center w-full text-white max-md:hidden max-w-screen-xl mx-auto">
         <a href="/" className="text-4xl font-bold">
           <img src={logoImg.src} alt="logo" width={400} height={400} />

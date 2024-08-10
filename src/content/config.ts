@@ -17,7 +17,7 @@ const servicesCollection = defineCollection({
     name: z.string(),
     description: z.string(),
     featuredImage: z.string(),
-  
+    gallery: z.array(z.string()).optional(),
   }),
 });
 

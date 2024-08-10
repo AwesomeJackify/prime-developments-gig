@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  navIsSticky?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, navIsSticky } = Astro.props;
 
 import config from "../config.json";
 
@@ -22,7 +23,7 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
-    <Nav client:load />
+    <Nav client:load navIsSticky={navIsSticky} />
     <slot />
     <Footer />
   </body>
