@@ -93,7 +93,7 @@ const services = [
 const projects = await getCollection("projects");
 
 const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}",
 );
 ---
 
@@ -183,7 +183,7 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
       class="max-w-screen-xl mx-auto grid grid-cols-8 max-md:grid-cols-1 gap-8"
     >
       <h1 class="font-bold text-4xl col-span-2 max-md:col-span-full">
-        <span class="text-primary">/</span> Our Projects
+        <span class="text-primary">/</span> Our Builds
       </h1>
       <div class="col-span-6 flex flex-col gap-16 max-md:col-span-full">
         <p class="font-light text-2xl">
@@ -195,6 +195,10 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
           That's why at Prime Developments, we handle every aspect for you. From
           design and planning to construction, we ensure a seamless and stress-free
           experience, guiding you through each step with expertise and care.
+          <br />
+          <br />
+          Below are some of our plans, we can build these for you or we can work
+          with you to create a custom plan that suits your needs.
         </p>
         <div class="flex flex-col w-full gap-8">
           {
