@@ -1,7 +1,7 @@
 ---
 name: "Renovations"
 description:
-  "We are experts in developing residential properties. We have developed various townhouses around the Canterbury region. We cover the whole process for you and provide you with either predesigned drawings or we can work with you to develop the vision of your dream house.
+  "Prime Developments NZ excels in high-quality renovations, transforming spaces with expertise and attention to detail. Their team collaborates closely with clients to deliver innovative and practical renovations that exceed expectations, whether for residential, commercial, or heritage properties. With a focus on creativity and customer satisfaction, Prime Developments NZ is a trusted choice for top-tier renovation services in New Zealand.
 
   "
 featuredImage: "renovations/renovations.jpg"

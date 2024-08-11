@@ -1,7 +1,7 @@
 ---
 name: "Demolition"
 description:
-  "We are experts in developing residential properties. We have developed various townhouses around the Canterbury region. We cover the whole process for you and provide you with either predesigned drawings or we can work with you to develop the vision of your dream house.
+  "With over a decade of experience, Prime Developments NZ is a trusted expert in demolition services. Their skilled team efficiently clears properties of all types and sizes to pave the way for your dream project. Count on Prime Developments NZ for safe, professional, and reliable demolition services to bring your vision to life.
 
   "
 featuredImage: "demolition/demolition.jpg"
