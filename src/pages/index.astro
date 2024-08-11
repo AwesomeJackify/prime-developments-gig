@@ -90,10 +90,10 @@ const services = [
   },
 ];
 
-const projects = await getCollection("projects");
+const builds = await getCollection("builds");
 
-const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}",
+const buildImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/builds/**/*.{jpeg,jpg,png,gif}",
 );
 ---
 
@@ -202,27 +202,27 @@ const projectImages = import.meta.glob<{ default: ImageMetadata }>(
         </p>
         <div class="flex flex-col w-full gap-8">
           {
-            projects.slice(0, 3).map((project: any) => (
+            builds.slice(0, 3).map((build: any) => (
               <a
                 class="w-full h-96 max-md:h-52 relative group"
-                href={"/projects/" + project.slug}
+                href={"/builds/" + build.slug}
               >
                 <Image
-                  src={projectImages[
-                    `/src/assets/images/projects/${project.data.featuredImage}`
+                  src={buildImages[
+                    `/src/assets/images/builds/${build.data.featuredImage}`
                   ]()}
-                  alt={project.data.name}
+                  alt={build.data.name}
                   class="object-cover w-full h-full object-center"
                 />
                 <div class="w-full h-full absolute bg-black opacity-40 group-hover:opacity-20 transition top-0 left-0 z-10" />
                 <h2 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-6xl max-md:text-5xl z-20">
-                  {project.data.name}
+                  {build.data.name}
                 </h2>
               </a>
             ))
           }
-          <a href="/projects" class="link text-2xl mt-8 link-primary mx-auto"
-            >View all projects</a
+          <a href="/builds" class="link text-2xl mt-8 link-primary mx-auto"
+            >View all builds</a
           >
         </div>
       </div>
