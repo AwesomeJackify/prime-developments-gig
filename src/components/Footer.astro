@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 import logoImg from "../assets/images/logo.png";
 import config from "../config.json";
-const projects = await getCollection("projects");
+const builds = await getCollection("builds");
 const services = await getCollection("services");
 ---
 
@@ -38,16 +38,16 @@ const services = await getCollection("services");
       </div>
 
       <div>
-        <h6 class="text-lg font-semibold mb-4">Projects</h6>
+        <h6 class="text-lg font-semibold mb-4">Builds</h6>
         <ul class="space-y-2">
           {
-            projects.map((project: any) => (
+            builds.map((build: any) => (
               <li>
                 <a
                   class="text-sm hover:text-primary transition-colors duration-200"
-                  href={`/projects/${project.slug}`}
+                  href={`/builds/${build.slug}`}
                 >
-                  {project.data.name}
+                  {build.data.name}
                 </a>
               </li>
             ))

@@ -4,34 +4,34 @@ import { getCollection } from "astro:content";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-const projects = await getCollection("projects");
+const builds = await getCollection("builds");
 
-const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+const buildImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/builds/**/*.{jpeg,jpg,png,gif}",
 );
 ---
 
-<Layout title="Projects" navIsSticky={false}>
+<Layout title="Builds" navIsSticky={false}>
   <section class="py-16 px-4">
     <div class="max-w-screen-xl mx-auto flex flex-col gap-16">
-      <h1 class="text-7xl text-center font-bold">Our Projects</h1>
+      <h1 class="text-7xl text-center font-bold">Our Builds</h1>
       <div class="flex flex-col gap-8">
         {
-          projects.map((project) => (
+          builds.map((build) => (
             <a
               class="w-full h-96 max-md:h-52 relative group"
-              href={"/projects/" + project.slug}
+              href={"/builds/" + build.slug}
             >
               <Image
-                src={projectImages[
-                  `/src/assets/images/projects/${project.data.featuredImage}`
+                src={buildImages[
+                  `/src/assets/images/builds/${build.data.featuredImage}`
                 ]()}
-                alt={project.data.name}
+                alt={build.data.name}
                 class="object-cover w-full h-full object-center"
               />
               <div class="w-full h-full absolute bg-black opacity-40 group-hover:opacity-20 transition top-0 left-0 z-10" />
               <h2 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white text-6xl max-md:text-5xl z-20">
-                {project.data.name}
+                {build.data.name}
               </h2>
             </a>
           ))

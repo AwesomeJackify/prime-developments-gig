@@ -6,19 +6,19 @@ import { getEntry } from "astro:content";
 
 export function getStaticPaths() {
   return [
-    { params: { project: "the-barn" } },
-    { params: { project: "the-cape-home" } },
-    { params: { project: "the-palliser" } },
+    { params: { build: "the-barn" } },
+    { params: { build: "the-cape-home" } },
+    { params: { build: "the-palliser" } },
   ];
 }
 
-const { project } = Astro.params;
+const { build } = Astro.params;
 
-const projectImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/projects/**/*.{jpeg,jpg,png,gif}"
+const buildImages = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/builds/**/*.{jpeg,jpg,png,gif}",
 );
 
-const currentProjectEntry = await getEntry("projects", project);
+const currentProjectEntry = await getEntry("builds", build);
 if (!currentProjectEntry) {
   return { status: 404 };
 }
@@ -28,7 +28,7 @@ const data = currentProjectEntry.data;
 <Layout title={data.name}>
   <section class="h-screen max-md:h-96 relative w-full">
     <Image
-      src={projectImages[`/src/assets/images/projects/${data.featuredImage}`]()}
+      src={buildImages[`/src/assets/images/builds/${data.featuredImage}`]()}
       alt={data.name}
       class="w-full h-full object-cover absolute top-0 left-0"
     />
@@ -46,7 +46,7 @@ const data = currentProjectEntry.data;
   <section>
     <div class="max-w-screen-lg mx-auto">
       <Image
-        src={projectImages[`/src/assets/images/projects/${data.floorPlan}`]()}
+        src={buildImages[`/src/assets/images/builds/${data.floorPlan}`]()}
         alt={data.name}
         class="w-full object-contain"
       />
