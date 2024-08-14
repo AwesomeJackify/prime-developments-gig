@@ -3,19 +3,23 @@ import Layout from "../../layouts/Layout.astro";
 import Image from "astro/components/Image.astro";
 import type { ImageMetadata } from "astro";
 import { getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 export function getStaticPaths() {
   return [
     { params: { build: "the-barn" } },
     { params: { build: "the-cape-home" } },
     { params: { build: "the-palliser" } },
+    { params: { build: "transportable-1" } },
+    { params: { build: "transportable-2" } },
+    { params: { build: "transportable-3" } },
   ];
 }
 
 const { build } = Astro.params;
 
 const buildImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/builds/**/*.{jpeg,jpg,png,gif}",
+  "/src/assets/images/builds/**/*.{jpeg,jpg,png,gif}"
 );
 
 const currentProjectEntry = await getEntry("builds", build);
@@ -43,7 +47,7 @@ const data = currentProjectEntry.data;
       <p class="font-light text-2xl">{data.description}</p>
     </div>
   </section>
-  <section>
+  <section class="py-16">
     <div class="max-w-screen-lg mx-auto">
       <Image
         src={buildImages[`/src/assets/images/builds/${data.floorPlan}`]()}
@@ -52,4 +56,34 @@ const data = currentProjectEntry.data;
       />
     </div>
   </section>
+  {
+    data.gallery && (
+      <section class="py-16">
+        <div class="flex flex-col items-center gap-2">
+          <div class="carousel h-[500px] overflow-y-hidden max-md:h-96">
+            {data.gallery.map((img, index) => (
+              <div class="carousel-item">
+                <Image
+                  src={buildImages[`/src/assets/images/builds/${img}`]()}
+                  class="object-cover w-full max-md:w-72 h-full"
+                  alt={`carousel img ${index}`}
+                />
+              </div>
+            ))}
+          </div>
+          <div class="flex items-center justify-center gap-2 max-md:hidden text-xs">
+            <p class="italic font-light">scroll using</p>
+            <kbd class="kbd kbd-xs">Shift</kbd>
+            <p>+</p>
+            <Icon name="mdi:mouse" class="text-xs" />
+            <p class="italic font-light">or</p>
+            <Icon name="mdi:trackpad" class="text-xs" />
+          </div>
+          <p class="md:hidden italic font-light text-xs">
+            scroll right to see more
+          </p>
+        </div>
+      </section>
+    )
+  }
 </Layout>
