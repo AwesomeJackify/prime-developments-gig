@@ -1,18 +1,18 @@
-<section class="py-16" id="contact">
+<section class="py-8 md:py-16" id="contact">
   <div class="max-w-screen-md mx-auto px-4">
     <h2
-      class="font-bold text-6xl max-md:text-5xl mb-8 text-center text-gray-800"
+      class="font-bold text-4xl md:text-5xl lg:text-6xl mb-6 md:mb-8 text-center text-gray-800"
     >
       Got a dream? Let's build it together
     </h2>
     <form
-      class="bg-white p-8 md:p-12 w-full mx-auto border border-black"
+      class="bg-white p-6 md:p-8 lg:p-12 w-full mx-auto border border-black rounded-lg"
       name="contact"
       method="POST"
       data-netlify="true"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="col-span-1">
+      <div class="grid grid-cols-1 gap-6">
+        <div>
           <label
             for="fullName"
             class="block text-gray-700 text-sm font-semibold mb-2"
@@ -26,7 +26,7 @@
             required
           />
         </div>
-        <div class="col-span-1">
+        <div>
           <label
             for="phoneNumber"
             class="block text-gray-700 text-sm font-semibold mb-2"
@@ -40,7 +40,7 @@
             required
           />
         </div>
-        <div class="col-span-2">
+        <div>
           <label
             for="email"
             class="block text-gray-700 text-sm font-semibold mb-2">Email</label
@@ -58,52 +58,52 @@
         <p class="block text-gray-700 text-sm font-semibold mb-4">
           Services Interested In:
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="flex items-center">
             <input
               type="checkbox"
-              id="service-home building"
+              id="service-home-building"
               name="home building?"
               value="Yes"
               class="form-checkbox h-5 w-5 text-primary rounded-full"
             />
-            <label for="service-home building" class="ml-2 text-gray-700"
+            <label for="service-home-building" class="ml-2 text-gray-700"
               >Home Building</label
             >
           </div>
           <div class="flex items-center">
             <input
               type="checkbox"
-              id="service-Planning and Design"
+              id="service-planning-and-design"
               name="planning and design?"
               value="Yes"
               class="form-checkbox h-5 w-5 text-primary rounded-full"
             />
-            <label for="service-Planning and Design" class="ml-2 text-gray-700"
+            <label for="service-planning-and-design" class="ml-2 text-gray-700"
               >Planning and Design</label
             >
           </div>
           <div class="flex items-center">
             <input
               type="checkbox"
-              id="service-Renovations"
+              id="service-renovations"
               name="renovations?"
               value="Yes"
               class="form-checkbox h-5 w-5 text-primary rounded-full"
             />
-            <label for="service-Renovations" class="ml-2 text-gray-700"
+            <label for="service-renovations" class="ml-2 text-gray-700"
               >Renovations</label
             >
           </div>
           <div class="flex items-center">
             <input
               type="checkbox"
-              id="service-Demolition"
+              id="service-demolition"
               name="demolition?"
               value="Yes"
               class="form-checkbox h-5 w-5 text-primary rounded-full"
             />
-            <label for="service-Demolition" class="ml-2 text-gray-700"
+            <label for="service-demolition" class="ml-2 text-gray-700"
               >Demolition</label
             >
           </div>
@@ -124,8 +124,11 @@
           placeholder="Please provide any additional details about your project..."
         ></textarea>
       </div>
-      <div class="mt-10 flex items-center justify-center">
-        <button type="submit" class="btn text-white btn-primary">
+      <div class="mt-8 flex items-center justify-center">
+        <button
+          type="submit"
+          class="btn text-white btn-primary w-full sm:w-auto px-6 py-3"
+        >
           Submit Your Dream
         </button>
       </div>
