@@ -28,7 +28,10 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
-    <div id="filter" class="top-0 left-0 w-full h-full bg-white z-50 fixed">
+    <div
+      id="filter"
+      class="top-0 left-0 w-full h-full bg-white z-50 fixed opacity-100"
+    >
     </div>
     <Nav client:load navIsSticky={navIsSticky} />
     <slot />
@@ -63,9 +66,9 @@ import Footer from "../components/Footer.astro";
       monospace;
   }
 </style>
-
+<!-- 
 <script>
-  const startDate = new Date("2025-01-01");
+  const startDate = new Date("2024-10-1");
   const today = new Date();
 
   const differenceInDays = Math.floor(
@@ -76,4 +79,4 @@ import Footer from "../components/Footer.astro";
     0.9,
     differenceInDays / 60
   ).toString();
-</script>
+</script> -->
