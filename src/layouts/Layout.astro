@@ -28,11 +28,6 @@ import Footer from "../components/Footer.astro";
     <title>{title}</title>
   </head>
   <body>
-    <div
-      id="filter"
-      class="top-0 left-0 w-full h-full bg-white z-50 fixed opacity-0"
-    >
-    </div>
     <Nav client:load navIsSticky={navIsSticky} />
     <slot />
     <Footer />
